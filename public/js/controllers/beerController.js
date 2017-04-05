@@ -21,6 +21,10 @@ app.controller('beerController', function($scope, beerFactory, $stateParams) {
       .then(function(beer) {
         $scope.beer = beer;
       })
+      //this is new
+      .catch(function(err) {
+        alert(err.data.message)
+      });
   }
 
 

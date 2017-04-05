@@ -30,26 +30,23 @@ app.factory('beerFactory', function($http) {
         return response.data
       });
   };
-
-
+  
+  //removed the error handler
   beerFactory.addBeer = function(newBeer) {
     return $http.post('/beers', newBeer)
       .then(function(response) {
         return response.data
-      }, function(err) {
-        console.error(err)
       });
   };
-
+  
+  //removed the error handler
   beerFactory.removeBeer = function(beer) {
     return $http.delete('/beers/' + beer._id)
       .then(function(response) {
         return response.data;
-      }, function(err) {
-        console.error(err)
       });
   };
-
+  
   beerFactory.addReview = function(id, newReview) {
     return $http.post('/beers/' + id + '/reviews', newReview)
       .then(function(response) {
@@ -58,17 +55,14 @@ app.factory('beerFactory', function($http) {
         console.error(err)
       });
   };
-
+  
+  //removed the error handler
   beerFactory.deleteReview = function(beerId, reviewId) {
     return $http.delete('/beers/' + beerId + '/reviews/' + reviewId)
       .then(function(response) {
         return response.data
-      }, function(err) {
-        console.error(err)
       });
   };
-
-
 
   return beerFactory;
 });
